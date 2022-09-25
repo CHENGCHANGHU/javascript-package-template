@@ -5,6 +5,7 @@
   "main": "./lib/cjs-module.js",
   "module": "./lib/es-module.js",
   "scripts": {
+    "build:mac": "mode=production minimize=true webpack",
     "build:windows": "set mode=\"production\" && set minimize=true && webpack"
   },
   "repository": {
