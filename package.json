@@ -6,7 +6,8 @@
   "module": "./lib/es-module.js",
   "scripts": {
     "build:mac": "mode=production minimize=true webpack",
-    "build:windows": "set mode=\"production\" && set minimize=true && webpack"
+    "dev:windows": "set mode=development&&set minimize=false&&webpack",
+    "build:windows": "set mode=production&&set minimize=true&&webpack"
   },
   "repository": {
     "type": "git",

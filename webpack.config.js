@@ -10,10 +10,10 @@ console.log('mode:', process.env.mode);
 console.log('minimize:', process.env.minimize);
 
 function getWebpackConfig () {
-  console.log(process.env.mode, typeof process.env.mode, process.env.mode === 'production');
-  console.log(JSON.stringify(process.env.mode), JSON.stringify(process.env.mode) === 'production');
+  // console.log(process.env.mode, typeof process.env.mode, process.env.mode === 'production');
+  // console.log(JSON.stringify(process.env.mode), JSON.stringify(process.env.mode) === 'production');
   return {
-    mode: process.env.mode === 'development' ? 'production' : 'development',
+    mode: process.env.mode,
     optimization: {
       minimize: JSON.parse(process.env.minimize),
     },
