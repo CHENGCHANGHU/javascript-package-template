@@ -5,13 +5,13 @@ const externalDependencies = [
   ...Object.keys(package.peerDependencies || {}),
 ];
 
-console.log(process.argv);
-console.log('mode:', process.env.mode);
-console.log('minimize:', process.env.minimize);
+// console.log(process.argv);
+// console.log('mode:', process.env.mode);
+// console.log('minimize:', process.env.minimize);
 
 function getWebpackConfig () {
   return {
-    mode: process.env.mode,
+    mode: JSON.parse(process.env.mode),
     optimization: {
       minimize: JSON.parse(process.env.minimize),
     },
