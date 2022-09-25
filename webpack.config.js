@@ -1,4 +1,5 @@
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const package = require('./package.json');
 const externalDependencies = [
   ...Object.keys(package.dependencies || {}),
@@ -9,11 +10,13 @@ const externalDependencies = [
 console.log('mode:', process.env.mode);
 console.log('minimize:', process.env.minimize);
 
-function getWebpackConfig () {
+function getWebpackConfig (commandParams) {
+  console.log(commandParams);
   // console.log(process.env.mode, typeof process.env.mode, process.env.mode === 'production');
   // console.log(JSON.stringify(process.env.mode), JSON.stringify(process.env.mode) === 'production');
   return {
     mode: process.env.mode,
+    devtool: process.env.mode === 'development' ? 'source-map': undefined,
     optimization: {
       minimize: JSON.parse(process.env.minimize),
     },
@@ -38,6 +41,9 @@ function getWebpackConfig () {
         },
       ],
     },
+    plugins: [
+      new CleanWebpackPlugin(),
+    ],
     externals: [
       ({ request }, callback) => {
         if (externalDependencies.some(dep => dep === request || request.startsWith(`${dep}/`))) {
@@ -53,4 +59,4 @@ function getWebpackConfig () {
   };
 }
 
-module.exports = getWebpackConfig();
+module.exports = getWebpackConfig;
