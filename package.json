@@ -6,9 +6,9 @@
   "module": "./lib/es-module.js",
   "typings": "./dist/src/index.d.ts",
   "scripts": {
-    "dev:mac": "mode=development minimize=false webpack --config webpack.config.js --env development --env minimize=false",
+    "dev:mac": "mode=development minimize=false webpack --watch --config webpack.config.js --env development --env minimize=false",
     "build:mac": "mode=production minimize=true webpack --config webpack.config.js --env production --env minimize",
-    "dev:windows": "set mode=development&&set minimize=false&&webpack --config webpack.config.js --env development --env minimize=false",
+    "dev:windows": "set mode=development&&set minimize=false&&webpack --watch --config webpack.config.js --env development --env minimize=false",
     "build:windows": "set mode=production&&set minimize=true&&webpack --config webpack.config.js --env production --env minimize",
     "publish:patch": "node ./publish-helper.mjs"
   },
