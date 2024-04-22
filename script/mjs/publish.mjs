@@ -3,7 +3,7 @@ import { spawnSync } from 'node:child_process';
 import { parseArgs } from 'node:util';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import packageData from './package.json' assert { type: "json" };
+import packageData from '../../package.json' assert { type: "json" };
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
